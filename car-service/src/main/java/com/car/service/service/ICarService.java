@@ -5,8 +5,8 @@ import com.car.service.entity.Car;
 import java.util.List;
 
 public interface ICarService {
-    Car getCarById(Long id);
+    Car getCarById(long id);
     List<Car> getAllCars();
     Car createCar(Car user);
-    List<Car> getByUserId (Long userId);
+   // List<Car> findByUserId (long userId);
 }

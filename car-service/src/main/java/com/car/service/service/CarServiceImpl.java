@@ -14,7 +14,7 @@ public class CarServiceImpl implements  ICarService{
     CarRespository repository;
 
     @Override
-    public Car getCarById(Long id) {
+    public Car getCarById(long id) {
         return repository.findById(id)
                 .orElseThrow(()-> null);
     }
@@ -29,8 +29,7 @@ public class CarServiceImpl implements  ICarService{
         return repository.save(user);
     }
 
-    @Override
-    public List<Car> getByUserId(Long userId) {
-        return repository.getByUserId(userId);
+    public List<Car> findByUserId(long userId) {
+        return repository.findByUserId(userId);
     }
 }
