@@ -1,6 +1,8 @@
 package com.user.service.service;
 
 import com.user.service.entity.User;
+import com.user.service.feignClients.CarFeignClient;
+import com.user.service.models.Car;
 import com.user.service.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,9 @@ public class UserServiceImpl implements IUserService{
 
    @Autowired
     RestTemplate restTemplate;
+
+   @Autowired
+   CarFeignClient carFeignClient;
 
     @Override
     public User getUserById(Long id) {
@@ -38,5 +43,11 @@ public class UserServiceImpl implements IUserService{
     public List getCars(long userId) {
         String url = "http://localhost:8002/car/user/";
         return restTemplate.getForObject(url + userId, List.class);
+    }
+
+    @Override
+    public Car saveCar(long userId,Car car){
+        car.setUserId(userId);
+        return carFeignClient.save(car);
     }
 }

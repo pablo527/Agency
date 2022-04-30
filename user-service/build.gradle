@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '2.5.4'
+	id 'org.springframework.boot' version '2.4.13'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 }
@@ -21,8 +21,9 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	// https://mvnrepository.com/artifact/io.github.openfeign/feign-core
-	implementation group: 'io.github.openfeign', name: 'feign-core', version: '11.8'
+	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '3.0.0'
+	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-config-client
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'

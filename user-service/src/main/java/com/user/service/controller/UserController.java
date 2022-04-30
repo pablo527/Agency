@@ -43,5 +43,9 @@ public class UserController {
       return ResponseEntity.ok(service.createUser(user));
     }
 
-
+    @PostMapping("/car/{userId}")
+    public ResponseEntity<Car> saveCar(@PathVariable("userId") long userId, @RequestBody Car car){
+        Car newCar = service.saveCar(userId,car);
+        return ResponseEntity.ok(newCar);
+    }
 }

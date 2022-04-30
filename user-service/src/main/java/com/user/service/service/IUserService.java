@@ -10,4 +10,5 @@ public interface IUserService {
     List<User> getAllUsers();
     User createUser(User user);
     List<Car> getCars(long userId);
+    Car saveCar(long userId, Car car);
 }
